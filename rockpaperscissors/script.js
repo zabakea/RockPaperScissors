@@ -8,6 +8,7 @@ console.log(buttons);
 clickButton();
 
 function clickButton() {
+
 buttons.querySelectorAll("button").forEach(button=>{
     button.addEventListener("click", startRound);
 
@@ -37,13 +38,12 @@ buttons.querySelectorAll("button").forEach(button=>{
     }
     console.log(playerChoice);  
     console.log(machineChoice);
+    button.removeEventListener("click", startRound);
     
     animateHands();
     }
 })  
 }
-
-
 
 function animateHands() {
     document.querySelector("#player1").classList.add("shake");
@@ -88,7 +88,8 @@ function decideWinner(){
         document.querySelector("#draw").classList.remove("hidden");
     }
     console.log("jebiga");
-    window.addEventListener("click", reset);
+    document.addEventListener("click", reset);
+    setTimeout(reset, 3000);
 }
 
 function reset() {
